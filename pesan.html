@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan</title>
+    <center class="title"><h4>MUSEUM NUSANTARA</h4></center>
+</head>
+<body style="background-color: #FFF8F3;">
+    <script lang="javascript">
+        function hitungharga(){
+            var nama = (document.pesan.nama.value);
+            var jumlahdewasa = (document.pesan.jumlahdewasa.value);
+            var jumlahanak = (document.pesan.jumlahanak.value);
+            var hitungdewasa = 15000 * jumlahdewasa;
+            var hitunganak = 7000 * jumlahanak;
+            var hitungtotal = hitunganak + hitungdewasa;
+            document.pesan.subtotaldewasa.value = eval(hitungdewasa);
+            document.pesan.subtotalanak.value = eval(hitunganak);
+            document.pesan.harga.value = eval(hitungtotal);
+        }
+    </script>
+    <form name="pesan" action="reservasi.php" method="post">
+        <table border="1" align="center" width="70%">
+            <tr><td width="100%" colspan="2"><center><p class="p1">Pemesanan Tiket</p></center></td></tr>
+            <tr>
+                <td width="50%">
+                    <p class="p2">Nama: <input type="text" name="nama" id="nama"></p>
+                    <p class="p2">Jumlah Tiket Dewasa: <input type="number" name="jumlahdewasa" id="jumlahdewasa"> Rp.15000/orang</p> 
+                    <p class="p2">Jumlah Tiket Anak-Anak: <input type="number" name="jumlahanak" id="jumlahanak"> Rp.7000/anak</p> 
+                    <p class="p2">Tanggal Pemesanan: <input type="date" name="tanggal" id="tanggal"></p>
+                </td>
+                <td width="50%">
+                    <p class="p2">Sub total tiket dewasa: <input type="text" name="subtotaldewasa" id="subtotaldewasa"></p>
+                    <p class="p2">Sub total tiket Anak-Anak: <input type="text" name="subtotalanak" id="subtotalanak"></p>
+                    <p class="p2">Harga: <input type="text" name="harga" id="harga"></p>
+                </td>
+            </tr>
+            <tr>
+                <td width="100%" colspan="2">
+                    <center>
+                        <input type="submit" value="Pesan" name="kirim" id="kirim" > <input type="button" value="Kalkulasi Harga" name="kalkulasi" id="kalkulasi" onclick="hitungharga()"> <input type="reset" value="Clear" name="clear" id="clear">
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <center><p class="p1"><- Kembali ke <a href="index.html">menu.</a></p></center>
+</body>
+<footer>
+    <p class="p2">Contact us <br>
+    111-22-3333-44444 <br> 
+    museumnusantara@gmail.com</p>
+</footer>
+</html>
